@@ -31,6 +31,8 @@ run();
 
 ## API
 
+API documentation is available [here](https://j3lte.github.io/govee-lan-controller/).
+
 ## License
 
 MIT
