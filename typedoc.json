@@ -1,0 +1,22 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["./src/index.ts" ],
+    "out": "docs",
+    "excludeExternals": true,
+    "excludePrivate": true,
+    "externalSymbolLinkMappings": {
+        "colord": {
+            "Colord": "https://github.com/omgovich/colord#api",
+            "colord": "https://github.com/omgovich/colord#api",
+            "random": "https://github.com/omgovich/colord#api",
+            "extend": "https://github.com/omgovich/colord#api",
+            "AnyColor": "https://github.com/omgovich/colord#api"
+        }
+    },
+    "cleanOutputDir": true,
+    "plugin": [
+        "typedoc-plugin-extras",
+        "typedoc-plugin-missing-exports"
+    ],
+    "includeVersion": true
+}

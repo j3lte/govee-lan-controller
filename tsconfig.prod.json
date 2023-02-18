@@ -1,0 +1,20 @@
+{
+    "include": ["./src/index.ts"],
+    "compilerOptions": {
+      "lib": ["es2020"],
+      "module": "commonjs",
+      "target": "es2020",
+
+      "rootDir": "./src",
+      "declarationDir": "./build/types",
+
+      "strict": true,
+      "sourceMap": false,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "resolveJsonModule": true
+    }
+  }

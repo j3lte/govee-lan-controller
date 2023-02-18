@@ -1,0 +1,93 @@
+{
+    "name": "@j3lte/govee-lan-controller",
+    "version": "1.0.0",
+    "description": "Control Govee devices over LAN",
+    "main": "./build/index.js",
+    "module": "./build/index.mjs",
+    "types": "./build/types/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./build/types/index.d.ts",
+            "import": "./build/index.mjs",
+            "require": "./build/index.js",
+            "default": "./build/index.mjs"
+        },
+        "./package.json": "./package.json"
+    },
+    "author": {
+        "name": "Jelte Lagendijk",
+        "email": "jelte@caffcode.com"
+    },
+    "keywords": [
+        "govee",
+        "govee-lan",
+        "govee-api",
+        "lan",
+        "controller"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/j3lte/govee-lan-controller.git"
+    },
+    "homepage": "https://github.com/j3lte/govee-lan-controller",
+    "bugs": "https://github.com/j3lte/govee-lan-controller/issues",
+    "scripts": {
+        "build": "npm run clean && npm run type:dts && npm run build:main",
+        "build:main": "node -r ./esbuild-hook ./scripts/build",
+        "clean": "node -r ./esbuild-hook ./scripts/clean",
+        "type:dts": "tsc --project ./tsconfig.prod.json",
+        "type:check": "tsc --noEmit",
+        "format": "prettier \"src/**/*.ts\" --write",
+        "format:check": "prettier \"src/**/*.ts\" --check",
+        "lint": "eslint src --ext .ts --fix",
+        "lint:check": "eslint src --ext .ts",
+        "docs:generate": "typedoc src/index.ts",
+        "docs": "npm run docs:generate",
+        "preview-docs": "live-server docs",
+        "test": "vitest run",
+        "test:watch": "vitest watch",
+        "test:coverage": "vitest run --coverage",
+        "test:setup": "node -r ./esbuild-hook ./scripts/testSetup",
+        "local": "npx ts-node --cwdMode ./scripts/local"
+    },
+    "files": [
+        "build/",
+        "LICENSE"
+    ],
+    "engines": {
+        "node": "^18.7.0 || >= 16",
+        "npm": "^8.16.0 || >= 8"
+    },
+    "volta": {
+        "node": "18.7.0",
+        "npm": "8.16.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@compodoc/live-server": "^1.2.3",
+        "@types/debug": "^4.1.7",
+        "@types/node": "^18.13.0",
+        "@typescript-eslint/eslint-plugin": "^5.52.0",
+        "@typescript-eslint/parser": "^5.52.0",
+        "esbuild": "^0.17.8",
+        "esbuild-plugin-polyfill-node": "^0.1.4",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-import-resolver-typescript": "^3.5.3",
+        "eslint-plugin-eslint-comments": "^3.2.0",
+        "eslint-plugin-import": "^2.27.5",
+        "prettier": "^2.8.4",
+        "typedoc": "^0.23.25",
+        "typedoc-plugin-extras": "^2.3.2",
+        "typedoc-plugin-missing-exports": "^1.0.0",
+        "typescript": "^4.9.5",
+        "vitest": "^0.28.5"
+    },
+    "dependencies": {
+        "colord": "^2.9.3",
+        "debug": "^4.3.4"
+    }
+}
