@@ -28,6 +28,10 @@ export interface GoveeOptions {
    * Whether to enable debug logging
    */
   debug: boolean;
+  /**
+   * Device update interval in milliseconds (default: 60 seconds)
+   */
+  deviceUpdateInterval: number;
 }
 
 export class Govee extends EventEmitter {
@@ -44,6 +48,7 @@ export class Govee extends EventEmitter {
       discover: options?.discover ?? true,
       discoverInterval: options?.discoverInterval ?? 300_000,
       debug: options?.debug ?? false,
+      deviceUpdateInterval: options?.deviceUpdateInterval ?? 60_000,
       listenTo: options?.listenTo,
     };
     if (this.opts.debug) {
@@ -80,6 +85,7 @@ export class Govee extends EventEmitter {
         if (!this.deviceMap.has(deviceID)) {
           const device = new Device(data.msg.data, {
             socket: this.socket!,
+            updateInterval: this.opts.deviceUpdateInterval,
             debug: this.debug.bind(this),
           });
           this.deviceMap.set(deviceID, device);
